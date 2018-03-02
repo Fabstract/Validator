@@ -1,0 +1,32 @@
+{
+  "name": "fabstract/validator",
+  "type": "library",
+  "description": "Data validator library for PHP",
+  "keywords": [
+    "php",
+    "validator"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Ahmet Turk",
+      "email": "ahmetturk93@gmail.com",
+      "homepage": "https://github.com/fabstract"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Fabs\\Component\\Validator\\": "src"
+    }
+  },
+  "require": {
+    "php": "^7.0",
+    "fabstract/assert": "dev-master"
+  },
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "git@github.com:Fabstract/Assert.git"
+    }
+  ]
+}
