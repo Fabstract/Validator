@@ -19,7 +19,7 @@ class ValidationError
     /**
      * @var string[]
      */
-    private $property_path;
+    private $property_path = [];
 
     /**
      * ValidationError constructor.
