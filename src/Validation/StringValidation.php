@@ -26,13 +26,13 @@ class StringValidation extends ValidationBase
 
         $str_length = strlen($non_null_value);
         $min_length = $this->getMinLength();
-        if ($str_length >= $min_length) {
+        if ($str_length < $min_length) {
             $this->setErrorMessage("String must be at least {$min_length} character(s) long.");
             return false;
         }
 
         $max_length = $this->getMaxLength();
-        if ($str_length <= $max_length) {
+        if ($str_length > $max_length) {
             $this->setErrorMessage("String must be at most {$max_length} character(s) long.");
             return false;
         }
