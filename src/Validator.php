@@ -92,9 +92,21 @@ class Validator implements ValidatorInterface
 
             if (count($property_validation_error_list) === 0) {
                 if ($property_value instanceof ValidatableInterface) {
-                    $property_prefix = $path;
-                    $property_prefix [] = $property_name;
-                    $property_validation_error_list = $this->validateInternal($property_value, $property_prefix);
+                    $property_path = $path;
+                    $property_path [] = $property_name;
+                    $property_validation_error_list = $this->validateInternal($property_value, $property_path);
+                } elseif (is_array($property_value) === true) {
+                    $property_validation_error_list = [];
+                    foreach ($property_value as $key => $property_value_item) {
+                        if ($property_value_item instanceof ValidatableInterface) {
+                            $property_value_item_path = $path;
+                            $property_value_item_path[] = $property_name;
+                            $property_value_item_path[] = sprintf('[%s]', strval($key));
+                            $property_value_item_validation_error_list = $this->validateInternal($property_value_item, $property_value_item_path);
+
+                            $property_validation_error_list = array_merge($property_value_item_validation_error_list, $property_validation_error_list);
+                        }
+                    }
                 }
             }
             $validation_error_list = array_merge($property_validation_error_list, $validation_error_list);
