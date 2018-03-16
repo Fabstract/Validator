@@ -7,6 +7,10 @@ class ValidationError
     /**
      * @var string
      */
+    private $class_name = null;
+    /**
+     * @var string
+     */
     private $property_name = null;
     /**
      * @var mixed
@@ -23,18 +27,27 @@ class ValidationError
 
     /**
      * ValidationError constructor.
+     * @param string $class_name
      * @param string $property_name
      * @param mixed $property_value
      * @param string $message
      * @param string[] $property_path
      */
-    public function __construct($property_name, $property_value, $message, $property_path)
+    public function __construct($class_name, $property_name, $property_value, $message, $property_path)
     {
-
+        $this->class_name = $class_name;
         $this->property_name = $property_name;
         $this->property_value = $property_value;
         $this->message = $message;
         $this->property_path = $property_path;
+    }
+
+    /**
+     * @return string
+     */
+    public function getClassName()
+    {
+        return $this->class_name;
     }
 
     /**

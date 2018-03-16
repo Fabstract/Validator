@@ -34,13 +34,14 @@ class Validator implements ValidatorInterface
     }
 
     /**
+     * @param string $class_name
      * @param string $property_name
      * @param mixed $property_value
      * @param ValidationMetadata $validation_metadata
      * @param string[] $path
      * @return array
      */
-    private function validateProperty($property_name, $property_value, $validation_metadata, $path)
+    private function validateProperty($class_name, $property_name, $property_value, $validation_metadata, $path)
     {
         if ($validation_metadata->offsetExists($property_name) === false) {
             return [];
@@ -55,6 +56,7 @@ class Validator implements ValidatorInterface
                 $property_path[] = $property_name;
 
                 $validation_errors[] = new ValidationError(
+                    $class_name,
                     $property_name,
                     $property_value,
                     $validation->getMessage(),
@@ -84,6 +86,7 @@ class Validator implements ValidatorInterface
             $property_value = $property->getValue($value);
             $property_name = $property->getName();
             $property_validation_error_list = $this->validateProperty(
+                $class_name,
                 $property_name,
                 $property_value,
                 $validation_metadata,
