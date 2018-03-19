@@ -20,7 +20,7 @@ abstract class ValidationBase implements ValidationInterface
      * constructor and new keyword.
      * @return static
      */
-    public static function newInstance()
+    public static function create()
     {
         return new static();
     }
