@@ -1,8 +1,8 @@
 <?php
 
-namespace Fabs\Component\Validator\Exception;
+namespace Fabstract\Component\Validator\Exception;
 
-use Fabs\Component\Assert\AssertionExceptionInterface;
+use Fabstract\Component\Assert\AssertionExceptionInterface;
 
 class TypeConflictException extends Exception implements AssertionExceptionInterface
 {

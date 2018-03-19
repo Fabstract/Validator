@@ -1,6 +1,6 @@
 <?php
 
-namespace Fabs\Component\Validator\Exception;
+namespace Fabstract\Component\Validator\Exception;
 
 class Exception extends \Exception
 {

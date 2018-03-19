@@ -1,11 +1,11 @@
 <?php
 
 
-namespace Fabs\Component\Validator\Validation;
+namespace Fabstract\Component\Validator\Validation;
 
 
-use Fabs\Component\Validator\Assert;
-use Fabs\Component\Validator\ValidationInterface;
+use Fabstract\Component\Validator\Assert;
+use Fabstract\Component\Validator\ValidationInterface;
 
 abstract class ValidationBase implements ValidationInterface
 {

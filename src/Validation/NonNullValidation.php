@@ -1,8 +1,8 @@
 <?php
 
-namespace Fabs\Component\Validator\Validation;
+namespace Fabstract\Component\Validator\Validation;
 
-use Fabs\Component\Validator\Exception\Exception;
+use Fabstract\Component\Validator\Exception\Exception;
 
 class NonNullValidation extends ValidationBase
 {

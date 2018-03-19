@@ -16,7 +16,7 @@
   ],
   "autoload": {
     "psr-4": {
-      "Fabs\\Component\\Validator\\": "src"
+      "Fabstract\\Component\\Validator\\": "src"
     }
   },
   "require": {

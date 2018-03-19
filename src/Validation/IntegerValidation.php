@@ -1,7 +1,7 @@
 <?php
 
 
-namespace Fabs\Component\Validator\Validation;
+namespace Fabstract\Component\Validator\Validation;
 
 
 class IntegerValidation extends ValidationBase

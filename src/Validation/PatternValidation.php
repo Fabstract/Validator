@@ -1,10 +1,10 @@
 <?php
 
 
-namespace Fabs\Component\Validator\Validation;
+namespace Fabstract\Component\Validator\Validation;
 
 
-use Fabs\Component\Validator\Assert;
+use Fabstract\Component\Validator\Assert;
 
 class PatternValidation extends ValidationBase
 {

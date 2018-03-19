@@ -1,10 +1,10 @@
 <?php
 
-namespace Fabs\Component\Validator;
+namespace Fabstract\Component\Validator;
 
-use Fabs\Component\Validator\Exception\TypeConflictException;
+use Fabstract\Component\Validator\Exception\TypeConflictException;
 
-class Assert extends \Fabs\Component\Assert\Assert
+class Assert extends \Fabstract\Component\Assert\Assert
 {
     /**
      * @param string $name
