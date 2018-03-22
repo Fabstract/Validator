@@ -56,7 +56,7 @@ abstract class ValidationBase implements ValidationInterface
      * @param string $non_null_value
      * @return bool
      */
-    abstract function isValidated($non_null_value);
+    abstract protected function isValidated($non_null_value);
 
     /**
      * @return bool
