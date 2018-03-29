@@ -1,10 +1,9 @@
 <?php
 
-
 namespace Fabstract\Component\Validator\Validation;
 
-
 use Fabstract\Component\Validator\Assert;
+use Fabstract\Component\Validator\Exception\TypeConflictException;
 use Fabstract\Component\Validator\ValidationInterface;
 
 abstract class ValidationBase implements ValidationInterface
@@ -28,6 +27,7 @@ abstract class ValidationBase implements ValidationInterface
     /**
      * @param mixed $value
      * @return bool
+     * @throws TypeConflictException
      */
     public function isValid($value)
     {
@@ -38,7 +38,15 @@ abstract class ValidationBase implements ValidationInterface
 
         $is_validated = static::isValidated($value);
         if ($is_validated === false) {
-            Assert::isNotNullOrWhiteSpace($this->getMessage(), 'error message');
+            try {
+                Assert::isNotNullOrWhiteSpace($this->getMessage());
+            } catch (TypeConflictException $exception) {
+                throw new TypeConflictException(
+                    'Validations should call setMessage method before returning false',
+                    0,
+                    $exception
+                );
+            }
         }
 
         return $is_validated;
