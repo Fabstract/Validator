@@ -41,8 +41,9 @@ abstract class ValidationBase implements ValidationInterface
             try {
                 Assert::isNotNullOrWhiteSpace($this->getMessage());
             } catch (TypeConflictException $exception) {
+                $class_name = static::class;
                 throw new TypeConflictException(
-                    'Validations should set message to non-empty value before returning false',
+                    "Validation ${class_name} should set message to non-empty value before returning false",
                     0,
                     $exception
                 );
