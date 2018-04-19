@@ -7,7 +7,7 @@ namespace Fabstract\Component\Validator\Validation;
 class ArrayValidation extends ValidationBase
 {
     /** @var int|float */
-    private $min_length = -INF;
+    private $min_length = 0;
     /** @var int|float */
     private $max_length = INF;
 
@@ -24,13 +24,13 @@ class ArrayValidation extends ValidationBase
 
         $min_length = $this->getMinLength();
         if (count($non_null_value) < $min_length) {
-            $this->setErrorMessage("Array must be at least {$min_length}");
+            $this->setErrorMessage("Array's length must be at least {$min_length}");
             return false;
         }
 
         $max_length = $this->getMaxLength();
         if (count($non_null_value) > $max_length) {
-            $this->setErrorMessage("Array must be at most {$max_length}");
+            $this->setErrorMessage("Array's length must be at most {$max_length}");
             return false;
         }
 
