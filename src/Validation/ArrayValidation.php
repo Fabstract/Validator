@@ -7,9 +7,9 @@ namespace Fabstract\Component\Validator\Validation;
 class ArrayValidation extends ValidationBase
 {
     /** @var int|float */
-    private $min_value = -INF;
+    private $min_length = -INF;
     /** @var int|float */
-    private $max_value = INF;
+    private $max_length = INF;
 
     /**
      * @param array $non_null_value
@@ -17,20 +17,20 @@ class ArrayValidation extends ValidationBase
      */
     protected function isValidated($non_null_value)
     {
-        if (is_array($non_null_value) !== null) {
+        if (is_array($non_null_value) !== true) {
             $this->setErrorMessage('Value must be array');
             return false;
         }
 
-        $min_value = $this->getMinValue();
-        if (count($non_null_value) < $min_value) {
-            $this->setErrorMessage("Array must be at least {$min_value}");
+        $min_length = $this->getMinLength();
+        if (count($non_null_value) < $min_length) {
+            $this->setErrorMessage("Array must be at least {$min_length}");
             return false;
         }
 
-        $max_value = $this->getMaxValue();
-        if (count($non_null_value) > $max_value) {
-            $this->setErrorMessage("Array must be at most {$max_value}");
+        $max_length = $this->getMaxLength();
+        if (count($non_null_value) > $max_length) {
+            $this->setErrorMessage("Array must be at most {$max_length}");
             return false;
         }
 
@@ -40,36 +40,36 @@ class ArrayValidation extends ValidationBase
     /**
      * @return float|int
      */
-    public function getMinValue()
+    public function getMinLength()
     {
-        return $this->min_value;
+        return $this->min_length;
     }
 
     /**
-     * @param float|int $min_value
+     * @param float|int $min_length
      * @return ArrayValidation
      */
-    public function setMinValue($min_value)
+    public function setMinLength($min_length)
     {
-        $this->min_value = $min_value;
+        $this->min_length = $min_length;
         return $this;
     }
 
     /**
      * @return float|int
      */
-    public function getMaxValue()
+    public function getMaxLength()
     {
-        return $this->max_value;
+        return $this->max_length;
     }
 
     /**
-     * @param float|int $max_value
+     * @param float|int max_length
      * @return ArrayValidation
      */
-    public function setMaxValue($max_value)
+    public function setMaxLength($max_length)
     {
-        $this->max_value = $max_value;
+        $this->max_length = $max_length;
         return $this;
     }
 }
