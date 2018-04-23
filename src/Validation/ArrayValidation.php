@@ -4,12 +4,17 @@
 namespace Fabstract\Component\Validator\Validation;
 
 
+use ArrayTypes;
+
 class ArrayValidation extends ValidationBase
 {
     /** @var int|float */
     private $min_length = 0;
     /** @var int|float */
     private $max_length = INF;
+    /** @var string */
+    private $type = null;
+
 
     /**
      * @param array $non_null_value
@@ -32,6 +37,17 @@ class ArrayValidation extends ValidationBase
         if (count($non_null_value) > $max_length) {
             $this->setErrorMessage("Array's length must be at most {$max_length}");
             return false;
+        }
+
+        $type = $this->getType();
+        if ($type !== null) {
+            $default_value = ArrayTypes::MAP[$type];
+            foreach ($non_null_value as $element) {
+                if (gettype($element) !== gettype($default_value)) {
+                    $this->setErrorMessage("Array type's not match the given type {$type}");
+                    return false;
+                }
+            }
         }
 
         return true;
@@ -70,6 +86,24 @@ class ArrayValidation extends ValidationBase
     public function setMaxLength($max_length)
     {
         $this->max_length = $max_length;
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
+     * @param string $type
+     * @return ArrayValidation
+     */
+    public function setType($type)
+    {
+        $this->type = $type;
         return $this;
     }
 }
