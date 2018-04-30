@@ -1,8 +1,6 @@
 <?php
 
-
 namespace Fabstract\Component\Validator\Validation;
-
 
 use Fabstract\Component\Validator\Assert;
 
@@ -10,7 +8,7 @@ class PatternValidation extends ValidationBase
 {
 
     /** @var string */
-    private $pattern = null;
+    protected $pattern = null;
 
     /**
      * PatternValidation constructor.

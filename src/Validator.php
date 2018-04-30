@@ -69,6 +69,7 @@ class Validator implements ValidatorInterface
     }
 
     /**
+     * @noinspection PhpDocMissingThrowsInspection
      * @param mixed $value
      * @param string[] $path
      * @return ValidationError[]
@@ -80,6 +81,7 @@ class Validator implements ValidatorInterface
         $class_name = get_class($value);
 
         $validation_metadata = $this->getValidationMetadata($value, $class_name);
+        /** @noinspection PhpUnhandledExceptionInspection */
         $reflection_class = new \ReflectionClass($class_name);
         $properties = $reflection_class->getProperties();
         foreach ($properties as $property) {
