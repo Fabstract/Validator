@@ -8,16 +8,16 @@
     "packages": [
         {
             "name": "fabstract/assert",
-            "version": "v0.1.0",
+            "version": "v0.1.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Fabstract/Assert.git",
-                "reference": "97b2555926723590e7fa64af9230745178051cbe"
+                "reference": "272e7f23e4f4b8a048faabe58523e6d199d4758c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Fabstract/Assert/zipball/97b2555926723590e7fa64af9230745178051cbe",
-                "reference": "97b2555926723590e7fa64af9230745178051cbe",
+                "url": "https://api.github.com/repos/Fabstract/Assert/zipball/272e7f23e4f4b8a048faabe58523e6d199d4758c",
+                "reference": "272e7f23e4f4b8a048faabe58523e6d199d4758c",
                 "shasum": ""
             },
             "require": {
@@ -45,7 +45,7 @@
                 "assert",
                 "php"
             ],
-            "time": "2018-03-29T07:05:18+00:00"
+            "time": "2018-04-17T08:25:46+00:00"
         }
     ],
     "packages-dev": [],
