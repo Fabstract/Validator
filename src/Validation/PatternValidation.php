@@ -8,7 +8,7 @@ class PatternValidation extends ValidationBase
 {
 
     /** @var string */
-    private $pattern = null;
+    protected $pattern = null;
 
     /**
      * PatternValidation constructor.
