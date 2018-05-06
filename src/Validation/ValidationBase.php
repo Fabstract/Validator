@@ -31,7 +31,11 @@ abstract class ValidationBase implements ValidationInterface
      */
     public function isValid($value)
     {
-        if ($value === null && !$this->getAllowNull()) {
+        if ($value === null) {
+            if ($this->getAllowNull() === true) {
+                return true;
+            }
+
             $this->setErrorMessage('Value cannot be null');
             return false;
         }
