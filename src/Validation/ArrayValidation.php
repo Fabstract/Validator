@@ -8,11 +8,11 @@ use Fabstract\Component\Validator\Constant\ArrayTypes;
 class ArrayValidation extends ValidationBase
 {
     /** @var int|float */
-    private $min_length = 0;
+    protected $min_length = 0;
     /** @var int|float */
-    private $max_length = INF;
+    protected $max_length = INF;
     /** @var string */
-    private $type = ArrayTypes::ANY;
+    protected $type = ArrayTypes::ANY;
 
     /**
      * @param array $non_null_value
