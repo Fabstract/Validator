@@ -126,7 +126,7 @@ class ArrayValidation extends ValidationBase
      */
     private function isSet($array)
     {
-        $is_unique = count($array) !== count(array_unique($array));
+        $is_unique = count($array) === count(array_unique($array));
 
         if ($is_unique) {
             return true;
