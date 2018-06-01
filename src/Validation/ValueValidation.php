@@ -35,12 +35,14 @@ class ValueValidation extends ValidationBase
 
     /**
      * @param bool $type_strict
+     * @return ValueValidation
      */
     public function setTypeStrict($type_strict)
     {
         Assert::isBoolean($type_strict, 'type_strict');
 
         $this->type_strict = $type_strict;
+        return $this;
     }
 
     /**
