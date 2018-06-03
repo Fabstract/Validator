@@ -7,6 +7,11 @@ class ValidationMetadata implements \ArrayAccess
     /** @var ValidationInterface[][] */
     private $validation_lookup = [];
 
+    /**
+     * @param string $property_name
+     * @param string|ValidationInterface $validation
+     * @return ValidationMetadata
+     */
     public function addValidation($property_name, $validation)
     {
         Assert::isString($property_name, 'property_name');
