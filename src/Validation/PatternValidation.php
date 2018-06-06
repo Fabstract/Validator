@@ -23,6 +23,15 @@ class PatternValidation extends ValidationBase
     }
 
     /**
+     * @param string $pattern
+     * @return PatternValidation
+     */
+    public static function create($pattern = null)
+    {
+        return new static($pattern);
+    }
+
+    /**
      * @param string $non_null_value
      * @return bool
      */
