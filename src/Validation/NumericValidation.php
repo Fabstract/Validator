@@ -17,7 +17,7 @@ class NumericValidation extends ValidationBase
      */
     protected function isValidated($non_null_value)
     {
-        if (!is_int($non_null_value) && !is_float($non_null_value)) {
+        if (!is_numeric($non_null_value)) {
             $this->setErrorMessage('Value must be numeric');
             return false;
         }
