@@ -22,7 +22,7 @@ class StringValidation extends ValidationBase
             return false;
         }
 
-        $str_length = strlen($non_null_value);
+        $str_length = mb_strlen($non_null_value);
         $min_length = $this->getMinLength();
         if ($str_length < $min_length) {
             $this->setErrorMessage("String must be at least {$min_length} character(s) long.");
