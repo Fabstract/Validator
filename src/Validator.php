@@ -109,12 +109,12 @@ class Validator implements ValidatorInterface
                             $property_value_item_path[] = sprintf('[%s]', strval($key));
                             $property_value_item_validation_error_list = $this->validateInternal($property_value_item, $property_value_item_path);
 
-                            $property_validation_error_list = array_merge($property_value_item_validation_error_list, $property_validation_error_list);
+                            $property_validation_error_list = array_merge($property_validation_error_list, $property_value_item_validation_error_list);
                         }
                     }
                 }
             }
-            $validation_error_list = array_merge($property_validation_error_list, $validation_error_list);
+            $validation_error_list = array_merge($validation_error_list, $property_validation_error_list);
         }
 
         return $validation_error_list;
