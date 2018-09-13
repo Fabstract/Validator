@@ -34,11 +34,8 @@ class Validator implements ValidatorInterface
         /** @var ValidationError[] $validation_error_list */
         $validation_error_list = [];
         foreach ($array as $key => $element) {
-            if ($element instanceof ValidatableInterface) {
-                $validation_error_list = array_merge($validation_error_list, $this->validateInternal($element, $this->addIndexKeyToPath($path, $key)));
-            } elseif (is_array($element)) {
-                $validation_error_list = array_merge($validation_error_list, $this->validateArray($element, $this->addIndexKeyToPath($path, $key)));
-            }
+            $validation_error_list =
+                array_merge($validation_error_list, $this->validateInternal($element, $this->addIndexKeyToPath($path, $key)));
         }
 
         return $validation_error_list;
