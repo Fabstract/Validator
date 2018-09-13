@@ -13,8 +13,48 @@ class Validator implements ValidatorInterface
      */
     public function validate($value)
     {
-        Assert::isType($value, ValidatableInterface::class, 'value');
+        if (is_array($value)) {
+            Assert::isArrayOfType($value, ValidatableInterface::class, 'value');
+        } else {
+            Assert::isType($value, ValidatableInterface::class, 'value');
+        }
+
         return $this->validateInternal($value);
+    }
+
+    /**
+     * @param array $array
+     * @param string[] $path
+     * @return ValidationError[]
+     */
+    private function validateArray($array, $path = [])
+    {
+        Assert::isArray($array, 'array');
+
+        /** @var ValidationError[] $validation_error_list */
+        $validation_error_list = [];
+        foreach ($array as $key => $element) {
+            if ($element instanceof ValidatableInterface) {
+                $validation_error_list = array_merge($validation_error_list, $this->validateInternal($element, $this->addIndexKeyToPath($path, $key)));
+            } elseif (is_array($element)) {
+                $validation_error_list = array_merge($validation_error_list, $this->validateArray($element, $this->addIndexKeyToPath($path, $key)));
+            }
+        }
+
+        return $validation_error_list;
+    }
+
+    /**
+     * @param string[] $path
+     * @param string|int $index_key
+     * @return string[]
+     */
+    private function addIndexKeyToPath($path, $index_key)
+    {
+        if (is_int($index_key)) {
+            $index_key = sprintf('[%s]', strval($index_key));
+        }
+        return array_merge($path, [$index_key]);
     }
 
     /**
@@ -34,38 +74,22 @@ class Validator implements ValidatorInterface
     }
 
     /**
-     * @param string $class_name
-     * @param string $property_name
      * @param mixed $property_value
-     * @param ValidationMetadata $validation_metadata
-     * @param string[] $path
-     * @return array
+     * @param ValidationInterface[] $validation_list
+     * @return string[]
      */
-    private function validateProperty($class_name, $property_name, $property_value, $validation_metadata, $path)
+    private function validateProperty($property_value, $validation_list)
     {
-        if ($validation_metadata->offsetExists($property_name) === false) {
-            return [];
-        }
+        /** @var string[] $validation_error_message_list */
+        $validation_error_message_list = [];
 
-        $validation_errors = [];
-
-        /** @var ValidationInterface $validation */
-        foreach ($validation_metadata[$property_name] as $validation) {
-            if ($validation->isValid($property_value) === false) {
-                $property_path = $path;
-                $property_path[] = $property_name;
-
-                $validation_errors[] = new ValidationError(
-                    $class_name,
-                    $property_name,
-                    $property_value,
-                    $validation->getMessage(),
-                    $property_path
-                );
+        foreach ($validation_list as $validation) {
+            if ($validation->isValid($property_value) !== true) {
+                $validation_error_message_list[] = $validation->getMessage();
             }
         }
 
-        return $validation_errors;
+        return $validation_error_message_list;
     }
 
     /**
@@ -76,6 +100,15 @@ class Validator implements ValidatorInterface
      */
     private function validateInternal($value, $path = [])
     {
+        if (is_array($value)) {
+            return $this->validateArray($value, $path);
+        }
+
+        if (!$value instanceof ValidatableInterface) {
+            return [];
+        }
+
+        /** @var ValidationError[] $validation_error_list */
         $validation_error_list = [];
 
         $class_name = get_class($value);
@@ -87,33 +120,30 @@ class Validator implements ValidatorInterface
         foreach ($properties as $property) {
             $property_value = $property->getValue($value);
             $property_name = $property->getName();
-            $property_validation_error_list = $this->validateProperty(
-                $class_name,
-                $property_name,
-                $property_value,
-                $validation_metadata,
-                $path
-            );
 
-            if (count($property_validation_error_list) === 0) {
-                if ($property_value instanceof ValidatableInterface) {
-                    $property_path = $path;
-                    $property_path [] = $property_name;
-                    $property_validation_error_list = $this->validateInternal($property_value, $property_path);
-                } elseif (is_array($property_value) === true) {
-                    $property_validation_error_list = [];
-                    foreach ($property_value as $key => $property_value_item) {
-                        if ($property_value_item instanceof ValidatableInterface) {
-                            $property_value_item_path = $path;
-                            $property_value_item_path[] = $property_name;
-                            $property_value_item_path[] = sprintf('[%s]', strval($key));
-                            $property_value_item_validation_error_list = $this->validateInternal($property_value_item, $property_value_item_path);
+            /** @var ValidationError[] $property_validation_error_list */
+            $property_validation_error_list = [];
 
-                            $property_validation_error_list = array_merge($property_validation_error_list, $property_value_item_validation_error_list);
-                        }
-                    }
+            if ($validation_metadata->offsetExists($property_name) === true) {
+                $validation_list = $validation_metadata[$property_name];
+                $validation_error_message_list = $this->validateProperty($property_value, $validation_list);
+
+                foreach ($validation_error_message_list as $validation_error_message) {
+                    $property_validation_error_list[] = new ValidationError(
+                        $class_name,
+                        $property_name,
+                        $property_value,
+                        $validation_error_message,
+                        array_merge($path, [$property_name])
+                    );
                 }
             }
+
+            if (count($property_validation_error_list) === 0) {
+                $property_validation_error_list =
+                    $this->validateInternal($property_value, $this->addIndexKeyToPath($path, $property_name));
+            }
+
             $validation_error_list = array_merge($validation_error_list, $property_validation_error_list);
         }
 
