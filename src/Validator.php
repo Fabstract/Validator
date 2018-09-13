@@ -131,7 +131,7 @@ class Validator implements ValidatorInterface
                         $property_name,
                         $property_value,
                         $validation_error_message,
-                        array_merge($path, [$property_name])
+                        $this->addIndexKeyToPath($path, $property_name)
                     );
                 }
             }
