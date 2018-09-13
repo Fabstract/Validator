@@ -73,7 +73,7 @@ class ArrayValidation extends ValidationBase
      */
     public function setMinLength($min_length)
     {
-        Assert::isNotNegative($min_length, 'min_length');
+        Assert::isNotNegativeInt($min_length, 'min_length');
 
         $this->min_length = $min_length;
         return $this;
@@ -93,7 +93,7 @@ class ArrayValidation extends ValidationBase
      */
     public function setMaxLength($max_length)
     {
-        Assert::isNotNegative($max_length, 'max_length');
+        Assert::isNotNegativeInt($max_length, 'max_length');
 
         $this->max_length = $max_length;
         return $this;
