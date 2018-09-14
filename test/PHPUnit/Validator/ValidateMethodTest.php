@@ -70,7 +70,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(1, count($return));
+        $this->assertEquals(0, count($return));
     }
 
     public function testValidPrivateProperty()
@@ -94,7 +94,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(1, count($return));
+        $this->assertEquals(0, count($return));
     }
 
     public function testClassWithNonExistentPropertyValidation()
