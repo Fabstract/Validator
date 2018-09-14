@@ -227,6 +227,159 @@ class ValidateMethodTest extends MethodTestBase
         $this->assertEquals(2, count($return));
     }
 
+    public function testPublicValidatableValidProperty()
+    {
+        $instance = new ClassWithPublicProperty();
+        $instance->setProperty(' ');
+
+        $property = new ClassWithPublicProperty();
+        $property->setProperty(' ');
+
+        $instance->setPublicValidatableProperty($property);
+
+        $arguments = [$instance];
+
+        $return = $this->call(new Validator(), $arguments);
+
+        $this->assertEquals(0, count($return));
+    }
+
+    public function testPublicValidatableInvalidProperty()
+    {
+        $instance = new ClassWithPublicProperty();
+        $instance->setProperty(' ');
+
+        $property = new ClassWithPublicProperty();
+        $property->setProperty('');
+
+        $instance->setPublicValidatableProperty($property);
+
+        $arguments = [$instance];
+
+        $return = $this->call(new Validator(), $arguments);
+
+        $this->assertEquals(1, count($return));
+    }
+
+    public function testPublicValidatableValidPropertyAndInvalidNotValidatableProperty()
+    {
+        $instance = new ClassWithPublicProperty();
+        $instance->setProperty('');
+
+        $property = new ClassWithPublicProperty();
+        $property->setProperty(' ');
+
+        $instance->setPublicValidatableProperty($property);
+
+        $arguments = [$instance];
+
+        $return = $this->call(new Validator(), $arguments);
+
+        $this->assertEquals(1, count($return));
+    }
+
+    public function testProtectedValidatableValidProperty()
+    {
+        $instance = new ClassWithProtectedProperty();
+        $instance->setProperty(' ');
+
+        $property = new ClassWithPublicProperty();
+        $property->setProperty(' ');
+
+        $instance->setProtectedValidatableProperty($property);
+
+        $arguments = [$instance];
+
+        $return = $this->call(new Validator(), $arguments);
+
+        $this->assertEquals(0, count($return));
+    }
+
+    public function testProtectedValidatableInvalidProperty()
+    {
+        $instance = new ClassWithProtectedProperty();
+        $instance->setProperty(' ');
+
+        $property = new ClassWithPublicProperty();
+        $property->setProperty('');
+
+        $instance->setProtectedValidatableProperty($property);
+
+        $arguments = [$instance];
+
+        $return = $this->call(new Validator(), $arguments);
+
+        $this->assertEquals(0, count($return));
+    }
+
+    public function testProtectedValidatableValidPropertyAndInvalidNotValidatableProperty()
+    {
+        $instance = new ClassWithProtectedProperty();
+        $instance->setProperty('');
+
+        $property = new ClassWithPublicProperty();
+        $property->setProperty(' ');
+
+        $instance->setProtectedValidatableProperty($property);
+
+        $arguments = [$instance];
+
+        $return = $this->call(new Validator(), $arguments);
+
+        $this->assertEquals(0, count($return));
+    }
+
+    public function testPrivateValidatableValidProperty()
+    {
+        $instance = new ClassWithPrivateProperty();
+        $instance->setProperty(' ');
+
+        $property = new ClassWithPublicProperty();
+        $property->setProperty(' ');
+
+        $instance->setPrivateValidatableProperty($property);
+
+        $arguments = [$instance];
+
+        $return = $this->call(new Validator(), $arguments);
+
+        $this->assertEquals(0, count($return));
+    }
+
+    public function testPrivateValidatableInvalidProperty()
+    {
+        $instance = new ClassWithPrivateProperty();
+        $instance->setProperty(' ');
+
+        $property = new ClassWithPublicProperty();
+        $property->setProperty('');
+
+        $instance->setPrivateValidatableProperty($property);
+
+        $arguments = [$instance];
+
+        $return = $this->call(new Validator(), $arguments);
+
+        $this->assertEquals(0, count($return));
+    }
+
+    public function testPrivateValidatableValidPropertyAndInvalidNotValidatableProperty()
+    {
+        $instance = new ClassWithPrivateProperty();
+        $instance->setProperty('');
+
+        $property = new ClassWithPublicProperty();
+        $property->setProperty(' ');
+
+        $instance->setPrivateValidatableProperty($property);
+
+        $arguments = [$instance];
+
+        $return = $this->call(new Validator(), $arguments);
+
+        $this->assertEquals(0, count($return));
+    }
+
     public function testErrorMessageAndPath()
     {
         $instance = new ClassWithNoValidation();
