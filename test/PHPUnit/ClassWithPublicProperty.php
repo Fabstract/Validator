@@ -9,6 +9,7 @@ use Fabstract\Component\Validator\ValidationMetadata;
 class ClassWithPublicProperty implements ValidatableInterface
 {
     public $public_property = null;
+    public $public_validatable_property = null;
 
     /**
      * @param ValidationMetadata $validation_metadata
@@ -23,5 +24,10 @@ class ClassWithPublicProperty implements ValidatableInterface
     public function setProperty($value)
     {
         $this->public_property = $value;
+    }
+
+    public function setPublicValidatableProperty($public_validatable_property)
+    {
+        $this->public_validatable_property = $public_validatable_property;
     }
 }
