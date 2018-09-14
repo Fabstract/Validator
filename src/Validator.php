@@ -113,7 +113,7 @@ class Validator implements ValidatorInterface
         $validation_metadata = $this->getValidationMetadata($value, $class_name);
         /** @noinspection PhpUnhandledExceptionInspection */
         $reflection_class = new \ReflectionClass($class_name);
-        $properties = $reflection_class->getProperties();
+        $properties = $reflection_class->getProperties(\ReflectionProperty::IS_PUBLIC);
         foreach ($properties as $property) {
             $property_value = $property->getValue($value);
             $property_name = $property->getName();
