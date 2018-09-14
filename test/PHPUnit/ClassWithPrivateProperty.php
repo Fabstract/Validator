@@ -8,7 +8,7 @@ use Fabstract\Component\Validator\ValidationMetadata;
 
 class ClassWithPrivateProperty implements ValidatableInterface
 {
-    public $private_property = null;
+    private $private_property = null;
 
     /**
      * @param ValidationMetadata $validation_metadata
