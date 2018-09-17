@@ -13,6 +13,8 @@ class BooleanValidation extends ValidationBase
         if (is_bool($non_null_value) === true) {
             return true;
         }
+
+        $this->setErrorMessage("Value must be boolean");
         return false;
     }
 }
