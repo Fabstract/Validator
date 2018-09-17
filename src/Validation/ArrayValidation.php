@@ -121,6 +121,14 @@ class ArrayValidation extends ValidationBase
     }
 
     /**
+     * @return string
+     */
+    public function getType()
+    {
+        return $this->type;
+    }
+
+    /**
      * @param array $array
      * @return bool
      */
