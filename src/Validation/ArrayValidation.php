@@ -5,6 +5,12 @@ namespace Fabstract\Component\Validator\Validation;
 use Fabstract\Component\Validator\Assert;
 use Fabstract\Component\Validator\Constant\ArrayTypes;
 
+/**
+ * Class ArrayValidation
+ * @package Fabstract\Component\Validator\Validation
+ *
+ * @see \Fabstract\Component\Validator\Test\PHPUnit\Validator\IsValidMethodTest
+ */
 class ArrayValidation extends ValidationBase
 {
     /** @var int|float */
@@ -61,6 +67,7 @@ class ArrayValidation extends ValidationBase
 
     /**
      * @return float|int
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\Validator\GetMinLengthMethodTest
      */
     public function getMinLength()
     {
@@ -81,6 +88,7 @@ class ArrayValidation extends ValidationBase
 
     /**
      * @return float|int
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\Validator\GetMaxLengthMethodTest
      */
     public function getMaxLength()
     {
@@ -102,6 +110,7 @@ class ArrayValidation extends ValidationBase
     /**
      * @param string $type
      * @return ArrayValidation
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\Validator\SetTypeMethodTest
      */
     public function setType($type)
     {
