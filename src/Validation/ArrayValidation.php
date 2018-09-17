@@ -150,7 +150,7 @@ class ArrayValidation extends ValidationBase
      */
     private function isSequential($array)
     {
-        $is_sequential = array_keys($array) === range(0, count($array));
+        $is_sequential = array_keys($array) === range(0, count($array) - 1);
         if ($is_sequential) {
             return true;
         }
