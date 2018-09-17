@@ -4,6 +4,12 @@ namespace Fabstract\Component\Validator\Validation;
 
 use Fabstract\Component\Validator\Exception\Exception;
 
+/**
+ * Class NonNullValidation
+ * @package Fabstract\Component\Validator\Validation
+ *
+ * @see \Fabstract\Component\Validator\Test\PHPUnit\NonNullValidation\IsValidMethodTest
+ */
 class NonNullValidation extends ValidationBase
 {
     /**
@@ -22,6 +28,7 @@ class NonNullValidation extends ValidationBase
      * @param bool $allow_null
      * @return ValidationBase|void
      * @throws Exception
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\NonNullValidation\SetAllowNullMethodTest
      */
     public final function setAllowNull($allow_null)
     {
