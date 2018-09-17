@@ -23,7 +23,7 @@ class NonNullValidation extends ValidationBase
      * @return ValidationBase|void
      * @throws Exception
      */
-    public function setAllowNull($allow_null)
+    public final function setAllowNull($allow_null)
     {
         $class_name = NonNullValidation::class;
         throw new Exception("cannot call setAllowNull on ${class_name}");
