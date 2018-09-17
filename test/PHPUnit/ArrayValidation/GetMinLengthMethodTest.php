@@ -1,6 +1,6 @@
 <?php
 
-namespace Fabstract\Component\Validator\Test\PHPUnit\Validator;
+namespace Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation;
 
 use Fabstract\Component\UnitTest\MethodTestBase;
 use Fabstract\Component\Validator\Validation\ArrayValidation;
