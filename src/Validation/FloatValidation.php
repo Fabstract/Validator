@@ -4,6 +4,12 @@ namespace Fabstract\Component\Validator\Validation;
 
 use Fabstract\Component\Validator\Assert;
 
+/**
+ * Class FloatValidation
+ * @package Fabstract\Component\Validator\Validation
+ *
+ * @see \Fabstract\Component\Validator\Test\PHPUnit\FloatValidation\IsValidMethodTest
+ */
 class FloatValidation extends ValidationBase
 {
     /** @var float */
@@ -39,6 +45,7 @@ class FloatValidation extends ValidationBase
 
     /**
      * @return float
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\FloatValidation\GetMinValueMethodTest
      */
     public function getMinValue()
     {
@@ -58,6 +65,7 @@ class FloatValidation extends ValidationBase
 
     /**
      * @return float
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\FloatValidation\GetMaxValueMethodTest
      */
     public function getMaxValue()
     {
