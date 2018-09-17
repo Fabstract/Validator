@@ -2,6 +2,14 @@
 
 namespace Fabstract\Component\Validator\Validation;
 
+use Fabstract\Component\Validator\Assert;
+
+/**
+ * Class IntegerValidation
+ * @package Fabstract\Component\Validator\Validation
+ *
+ * @see \Fabstract\Component\Validator\Test\PHPUnit\IntegerValidation\IsValidMethodTest
+ */
 class IntegerValidation extends ValidationBase
 {
     /** @var int|float */
@@ -37,6 +45,7 @@ class IntegerValidation extends ValidationBase
 
     /**
      * @return float|int
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\IntegerValidation\GetMinValueMethodTest
      */
     public function getMinValue()
     {
@@ -49,12 +58,14 @@ class IntegerValidation extends ValidationBase
      */
     public function setMinValue($min_value)
     {
+        Assert::isIntOrFloat($min_value, 'min_value');
         $this->min_value = $min_value;
         return $this;
     }
 
     /**
      * @return float|int
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\IntegerValidation\GetMaxValueMethodTest
      */
     public function getMaxValue()
     {
@@ -67,6 +78,7 @@ class IntegerValidation extends ValidationBase
      */
     public function setMaxValue($max_value)
     {
+        Assert::isIntOrFloat($max_value, 'max_value');
         $this->max_value = $max_value;
         return $this;
     }
