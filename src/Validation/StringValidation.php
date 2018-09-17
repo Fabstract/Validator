@@ -4,6 +4,12 @@ namespace Fabstract\Component\Validator\Validation;
 
 use Fabstract\Component\Validator\Assert;
 
+/**
+ * Class StringValidation
+ * @package Fabstract\Component\Validator\Validation
+ *
+ * @see \Fabstract\Component\Validator\Test\PHPUnit\StringValidation\IsValidMethodTest
+ */
 class StringValidation extends ValidationBase
 {
     /** @var int */
@@ -40,6 +46,7 @@ class StringValidation extends ValidationBase
 
     /**
      * @return int
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\StringValidation\GetMinLengthMethodTest
      */
     public function getMinLength()
     {
@@ -49,6 +56,7 @@ class StringValidation extends ValidationBase
     /**
      * @param int $min_length
      * @return StringValidation
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\StringValidation\SetMinLengthMethodTest
      */
     public function setMinLength($min_length)
     {
@@ -60,6 +68,7 @@ class StringValidation extends ValidationBase
 
     /**
      * @return float|int
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\StringValidation\GetMaxLengthMethodTest
      */
     public function getMaxLength()
     {
@@ -67,12 +76,13 @@ class StringValidation extends ValidationBase
     }
 
     /**
-     * @param int $max_length
+     * @param int|float $max_length
      * @return StringValidation
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\StringValidation\SetMaxLengthMethodTest
      */
     public function setMaxLength($max_length)
     {
-        Assert::isNotNegativeInt($max_length, 'max_length');
+        Assert::isNotNegativeNumber($max_length, false, 'max_length');
 
         $this->max_length = $max_length;
         return $this;
