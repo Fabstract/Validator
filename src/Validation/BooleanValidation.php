@@ -2,6 +2,12 @@
 
 namespace Fabstract\Component\Validator\Validation;
 
+/**
+ * Class BooleanValidation
+ * @package Fabstract\Component\Validator\Validation
+ *
+ * @see \Fabstract\Component\Validator\Test\PHPUnit\BooleanValidation\IsValidMethodTest
+ */
 class BooleanValidation extends ValidationBase
 {
     /**
