@@ -4,6 +4,12 @@ namespace Fabstract\Component\Validator\Validation;
 
 use Fabstract\Component\Assert\Assert;
 
+/**
+ * Class NumberValidation
+ * @package Fabstract\Component\Validator\Validation
+ *
+ * @see \Fabstract\Component\Validator\Test\PHPUnit\NumberValidation\IsValidMethodTest
+ */
 class NumberValidation extends ValidationBase
 {
     /** @var float */
@@ -18,7 +24,7 @@ class NumberValidation extends ValidationBase
     protected function isValidated($non_null_value)
     {
         if (!is_int($non_null_value) && !is_float($non_null_value)) {
-            $this->setErrorMessage('Value must be numeric');
+            $this->setErrorMessage('Value must be number (integer or float)');
             return false;
         }
 
@@ -39,6 +45,7 @@ class NumberValidation extends ValidationBase
 
     /**
      * @return int|float
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\NumberValidation\GetMinValueMethodTest
      */
     public function getMinValue()
     {
@@ -58,6 +65,7 @@ class NumberValidation extends ValidationBase
 
     /**
      * @return int|float
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\NumberValidation\GetMaxValueMethodTest
      */
     public function getMaxValue()
     {
