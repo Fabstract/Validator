@@ -2,6 +2,7 @@
 
 namespace Fabstract\Component\Validator\Test\PHPUnit\Validator;
 
+use Fabstract\Component\UnitTest\MethodTestBase;
 use Fabstract\Component\Validator\Exception\TypeConflictException;
 use Fabstract\Component\Validator\Test\PHPUnit\ClassThatDoesNotImplementValidatableInterface;
 use Fabstract\Component\Validator\Test\PHPUnit\ClassWithNonExistentPropertyValidation;

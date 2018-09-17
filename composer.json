@@ -12,6 +12,11 @@
       "name": "Ahmet Turk",
       "email": "ahmetturk93@gmail.com",
       "homepage": "https://github.com/fabstract"
+    },
+    {
+      "name": "Necip Allef",
+      "email": "necipallef@gmail.com",
+      "homepage": "https://github.com/necipallef"
     }
   ],
   "autoload": {
@@ -26,6 +31,6 @@
     "fabstract/assert": "^1.0.0"
   },
   "require-dev": {
-    "phpunit/phpunit": "^7.0"
+    "fabstract/unit-test": "^1.0.0"
   }
 }
