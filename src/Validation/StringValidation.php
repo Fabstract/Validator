@@ -52,7 +52,7 @@ class StringValidation extends ValidationBase
      */
     public function setMinLength($min_length)
     {
-        Assert::isInt($min_length);
+        Assert::isNotNegativeInt($min_length, 'min_length');
 
         $this->min_length = $min_length;
         return $this;
@@ -72,7 +72,7 @@ class StringValidation extends ValidationBase
      */
     public function setMaxLength($max_length)
     {
-        Assert::isInt($max_length);
+        Assert::isNotNegativeInt($max_length, 'max_length');
 
         $this->max_length = $max_length;
         return $this;
