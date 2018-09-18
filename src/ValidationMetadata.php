@@ -14,7 +14,7 @@ class ValidationMetadata implements \ArrayAccess
      */
     public function addValidation($property_name, $validation)
     {
-        Assert::isString($property_name, 'property_name');
+        Assert::isNotEmptyString($property_name, false, 'property_name');
 
         if (is_string($validation)) {
             Assert::isClassExists($validation, 'validation');
