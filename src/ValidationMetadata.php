@@ -2,7 +2,7 @@
 
 namespace Fabstract\Component\Validator;
 
-class ValidationMetadata implements \ArrayAccess
+class ValidationMetadata
 {
     /** @var ValidationInterface[][] */
     private $validation_lookup = [];
@@ -11,6 +11,7 @@ class ValidationMetadata implements \ArrayAccess
      * @param string $property_name
      * @param string|ValidationInterface $validation
      * @return ValidationMetadata
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\ValidationMetadata\AddValidationMethodTest
      */
     public function addValidation($property_name, $validation)
     {
@@ -28,69 +29,25 @@ class ValidationMetadata implements \ArrayAccess
     }
 
     /**
-     * Whether a offset exists
-     * @link http://php.net/manual/en/arrayaccess.offsetexists.php
-     * @param string $property_name <p>
-     * An offset to check for.
-     * </p>
-     * @return boolean true on success or false on failure.
-     * </p>
-     * <p>
-     * The return value will be casted to boolean if non-boolean was returned.
-     * @since 5.0.0
+     * @param string $property_name
+     * @param ValidationInterface[] $validation_list
+     * @return ValidationMetadata
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\ValidationMetadata\SetValidationListMethodTest
      */
-    public function offsetExists($property_name)
+    public function setValidationList($property_name, $validation_list)
     {
         Assert::isNotEmptyString($property_name, false, 'property_name');
-        return array_key_exists($property_name, $this->validation_lookup);
+        Assert::isArrayOfType($validation_list, ValidationInterface::class, 'validation_list');
+
+        $this->validation_lookup[$property_name] = $validation_list;
+        return $this;
     }
 
     /**
-     * Offset to retrieve
-     * @link http://php.net/manual/en/arrayaccess.offsetget.php
-     * @param string $property_name <p>
-     * The offset to retrieve.
-     * </p>
-     * @return ValidationInterface[] Can return all value types.
-     * @since 5.0.0
+     * @return ValidationInterface[][]
      */
-    public function offsetGet($property_name)
+    public function getPropertyValidationLookup()
     {
-        Assert::isNotEmptyString($property_name, false, 'property_name');
-        return $this->validation_lookup[$property_name];
-    }
-
-    /**
-     * Offset to set
-     * @link http://php.net/manual/en/arrayaccess.offsetset.php
-     * @param string $property_name <p>
-     * The offset to assign the value to.
-     * </p>
-     * @param ValidationInterface[] $type <p>
-     * The value to set.
-     * </p>
-     * @return void
-     * @since 5.0.0
-     */
-    public function offsetSet($property_name, $type)
-    {
-        Assert::isNotEmptyString($property_name, false, 'property_name');
-        Assert::isArray($type, 'type');
-        $this->validation_lookup[$property_name] = $type;
-    }
-
-    /**
-     * Offset to unset
-     * @link http://php.net/manual/en/arrayaccess.offsetunset.php
-     * @param string $property_name <p>
-     * The offset to unset.
-     * </p>
-     * @return void
-     * @since 5.0.0
-     */
-    public function offsetUnset($property_name)
-    {
-        Assert::isNotEmptyString($property_name, false, 'property_name');
-        unset($this->validation_lookup[$property_name]);
+        return $this->validation_lookup;
     }
 }

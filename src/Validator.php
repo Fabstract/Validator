@@ -121,8 +121,9 @@ class Validator implements ValidatorInterface
             /** @var ValidationError[] $property_validation_error_list */
             $property_validation_error_list = [];
 
-            if ($validation_metadata->offsetExists($property_name) === true) {
-                $validation_list = $validation_metadata[$property_name];
+            $property_validation_lookup = $validation_metadata->getPropertyValidationLookup();
+            if (array_key_exists($property_name, $property_validation_lookup) === true) {
+                $validation_list = $property_validation_lookup[$property_name];
                 $validation_error_message_list = $this->validateProperty($property_value, $validation_list);
 
                 foreach ($validation_error_message_list as $validation_error_message) {
