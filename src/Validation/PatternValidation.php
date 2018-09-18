@@ -16,7 +16,6 @@ class PatternValidation extends ValidationBase
      */
     function __construct($pattern)
     {
-        Assert::isNotNull($pattern, 'pattern');
         Assert::isRegexPattern($pattern, 'pattern');
 
         $this->pattern = $pattern;
@@ -37,6 +36,12 @@ class PatternValidation extends ValidationBase
      */
     function isValidated($non_null_value)
     {
+        if (is_string($non_null_value) !== true) {
+            $given = gettype($non_null_value);
+            $this->setErrorMessage("Value must be string, given ${given}");
+            return false;
+        }
+
         if (preg_match($this->pattern, $non_null_value) !== 1) {
             $this->setErrorMessage("Value must match pattern {$this->pattern}.");
             return false;
