@@ -4,6 +4,12 @@ namespace Fabstract\Component\Validator\Validation;
 
 use Fabstract\Component\Validator\Assert;
 
+/**
+ * Class StringArrayValidation
+ * @package Fabstract\Component\Validator\Validation
+ *
+ * @see \Fabstract\Component\Validator\Test\PHPUnit\StringArrayValidation\IsValidMethodTest
+ */
 class StringArrayValidation extends ArrayValidation
 {
     /** @var string */
@@ -40,6 +46,7 @@ class StringArrayValidation extends ArrayValidation
     /**
      * @param string $pattern
      * @return StringArrayValidation
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\StringArrayValidation\SetPatternMethodTest
      */
     public function setPattern($pattern)
     {
@@ -47,5 +54,14 @@ class StringArrayValidation extends ArrayValidation
 
         $this->pattern = $pattern;
         return $this;
+    }
+
+    /**
+     * @return string
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\StringArrayValidation\GetPatternMethodTest
+     */
+    public function getPattern()
+    {
+        return $this->pattern;
     }
 }
