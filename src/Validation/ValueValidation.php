@@ -4,6 +4,12 @@ namespace Fabstract\Component\Validator\Validation;
 
 use Fabstract\Component\Validator\Assert;
 
+/**
+ * Class ValueValidation
+ * @package Fabstract\Component\Validator\Validation
+ *
+ * @see \Fabstract\Component\Validator\Test\PHPUnit\ValueValidation\IsValidMethodTest
+ */
 class ValueValidation extends ValidationBase
 {
     /** @var mixed[] */
@@ -13,9 +19,11 @@ class ValueValidation extends ValidationBase
 
     /**
      * Including null in valid_values will NOT work.
+     * @see \Fabstract\Component\Validator\Validation\ValidationBase::isValid() for why null won't work.
      *
      * @param mixed[] $valid_values
      * @return ValueValidation
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\ValueValidation\SetValuesMethodTest
      */
     public function setValues($valid_values)
     {
@@ -26,7 +34,17 @@ class ValueValidation extends ValidationBase
     }
 
     /**
+     * @return mixed[]
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\ValueValidation\GetValuesMethodTest
+     */
+    public function getValues()
+    {
+        return $this->valid_values;
+    }
+
+    /**
      * @return bool
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\ValueValidation\IsTypeStrictMethodTest
      */
     public function isTypeStrict()
     {
@@ -36,6 +54,7 @@ class ValueValidation extends ValidationBase
     /**
      * @param bool $type_strict
      * @return ValueValidation
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\ValueValidation\SetTypeStrictMethodTest
      */
     public function setTypeStrict($type_strict)
     {
