@@ -5,6 +5,13 @@ namespace Fabstract\Component\Validator\Test\PHPUnit\BooleanValidation;
 use Fabstract\Component\UnitTest\MethodTestBase;
 use Fabstract\Component\Validator\Validation\BooleanValidation;
 
+/**
+ * Class GetMaxLengthMethodTest
+ * @package Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation
+ *
+ * @see \Fabstract\Component\Validator\Validation\BooleanValidation::isValid()
+ * @see \Fabstract\Component\Validator\Validation\BooleanValidation::isValidated()
+ */
 class IsValidMethodTest extends MethodTestBase
 {
 

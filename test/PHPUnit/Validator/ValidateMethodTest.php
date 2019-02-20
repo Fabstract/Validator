@@ -13,6 +13,12 @@ use Fabstract\Component\Validator\Test\PHPUnit\ClassWithPublicProperty;
 use Fabstract\Component\Validator\ValidationError;
 use Fabstract\Component\Validator\Validator;
 
+/**
+ * Class ValidateMethodTest
+ * @package Fabstract\Component\Validator\Test\PHPUnit\Validator
+ *
+ * @see \Fabstract\Component\Validator\Validator::validate()
+ */
 class ValidateMethodTest extends MethodTestBase
 {
     #region correct arguments

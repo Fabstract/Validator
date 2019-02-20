@@ -6,6 +6,14 @@ use Fabstract\Component\UnitTest\MethodTestBase;
 use Fabstract\Component\Validator\Constant\ArrayTypes;
 use Fabstract\Component\Validator\Validation\ArrayValidation;
 
+// todo sequential ve vector type lari empty array icin test et
+/**
+ * Class GetMaxLengthMethodTest
+ * @package Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation
+ *
+ * @see \Fabstract\Component\Validator\Validation\ArrayValidation::isValid()
+ * @see \Fabstract\Component\Validator\Validation\ArrayValidation::isValidated()
+ */
 class IsValidMethodTest extends MethodTestBase
 {
 

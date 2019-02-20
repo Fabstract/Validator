@@ -7,6 +7,12 @@ use Fabstract\Component\Validator\Constant\ArrayTypes;
 use Fabstract\Component\Validator\Exception\TypeConflictException;
 use Fabstract\Component\Validator\Validation\ArrayValidation;
 
+/**
+ * Class GetMaxLengthMethodTest
+ * @package Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation
+ *
+ * @see \Fabstract\Component\Validator\Validation\ArrayValidation::setType()
+ */
 class SetTypeMethodTest extends MethodTestBase
 {
 

@@ -6,6 +6,12 @@ use Fabstract\Component\UnitTest\MethodTestBase;
 use Fabstract\Component\Validator\Exception\TypeConflictException;
 use Fabstract\Component\Validator\Validation\StringValidation;
 
+/**
+ * Class GetMaxLengthMethodTest
+ * @package Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation
+ *
+ * @see \Fabstract\Component\Validator\Validation\StringValidation::setMinLength()
+ */
 class SetMinLengthMethodTest extends MethodTestBase
 {
 

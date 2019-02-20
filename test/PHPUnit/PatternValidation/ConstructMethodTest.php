@@ -6,6 +6,12 @@ use Fabstract\Component\UnitTest\MethodTestBase;
 use Fabstract\Component\Validator\Exception\TypeConflictException;
 use Fabstract\Component\Validator\Validation\PatternValidation;
 
+/**
+ * Class GetMaxLengthMethodTest
+ * @package Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation
+ *
+ * @see \Fabstract\Component\Validator\Validation\PatternValidation::create()
+ */
 class ConstructMethodTest extends MethodTestBase
 {
     public function testEmptyConstructorThrowsTypeConflictException()

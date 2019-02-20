@@ -5,6 +5,13 @@ namespace Fabstract\Component\Validator\Test\PHPUnit\NumberValidation;
 use Fabstract\Component\UnitTest\MethodTestBase;
 use Fabstract\Component\Validator\Validation\NumberValidation;
 
+/**
+ * Class GetMaxLengthMethodTest
+ * @package Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation
+ *
+ * @see \Fabstract\Component\Validator\Validation\NumberValidation::isValid()
+ * @see \Fabstract\Component\Validator\Validation\NumberValidation::isValidated()
+ */
 class IsValidMethodTest extends MethodTestBase
 {
 

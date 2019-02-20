@@ -8,6 +8,12 @@ use Fabstract\Component\Validator\Validation\StringValidation;
 use Fabstract\Component\Validator\ValidationMetadata;
 use Fabstract\Component\Validator\Validator;
 
+/**
+ * Class GetMaxLengthMethodTest
+ * @package Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation
+ *
+ * @see \Fabstract\Component\Validator\ValidationMetadata::addValidation()
+ */
 class AddValidationMethodTest extends MethodTestBase
 {
     public function testAddEqualsGet()

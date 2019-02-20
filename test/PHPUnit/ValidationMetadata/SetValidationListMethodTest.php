@@ -8,6 +8,12 @@ use Fabstract\Component\Validator\Validation\StringValidation;
 use Fabstract\Component\Validator\ValidationMetadata;
 use Fabstract\Component\Validator\Validator;
 
+/**
+ * Class GetMaxLengthMethodTest
+ * @package Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation
+ *
+ * @see \Fabstract\Component\Validator\ValidationMetadata::setValidationList()
+ */
 class SetValidationListMethodTest extends MethodTestBase
 {
     public function testEmptyPropertyNameThrowsTypeConflictException()
