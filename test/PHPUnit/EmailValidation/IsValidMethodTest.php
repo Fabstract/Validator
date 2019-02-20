@@ -5,6 +5,13 @@ namespace Fabstract\Component\Validator\Test\PHPUnit\EmailValidation;
 use Fabstract\Component\UnitTest\MethodTestBase;
 use Fabstract\Component\Validator\Validation\EmailValidation;
 
+/**
+ * Class GetMaxLengthMethodTest
+ * @package Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation
+ *
+ * @see \Fabstract\Component\Validator\Validation\EmailValidation::isValid()
+ * @see \Fabstract\Component\Validator\Validation\EmailValidation::isValidated()
+ */
 class IsValidMethodTest extends MethodTestBase
 {
     #region [correct arguments]
