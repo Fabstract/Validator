@@ -28,6 +28,7 @@ class AddValidationMethodTest extends MethodTestBase
         $this->assertEquals(1, count($return));
         $this->assertInstanceOf(StringValidation::class, $return[0]);
     }
+
     public function testAddEqualsGetForString()
     {
         $arguments = ['property', StringValidation::class];
