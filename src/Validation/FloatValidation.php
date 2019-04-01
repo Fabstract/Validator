@@ -58,7 +58,7 @@ class FloatValidation extends ValidationBase
      */
     public function setMinValue($min_value)
     {
-        Assert::isFloat($min_value);
+        Assert::isFloat($min_value, 'min_value');
         $this->min_value = $min_value;
         return $this;
     }
@@ -78,7 +78,7 @@ class FloatValidation extends ValidationBase
      */
     public function setMaxValue($max_value)
     {
-        Assert::isFloat($max_value);
+        Assert::isFloat($max_value, 'max_value');
         $this->max_value = $max_value;
         return $this;
     }
