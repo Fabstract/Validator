@@ -4,6 +4,12 @@ namespace Fabstract\Component\Validator\Validation;
 
 use Fabstract\Component\Validator\Assert;
 
+/**
+ * Class PatternValidation
+ * @package Fabstract\Component\Validator\Validation
+ *
+ * @see \Fabstract\Component\Validator\Test\PHPUnit\PatternValidation\IsValidMethodTest
+ */
 class PatternValidation extends ValidationBase
 {
 
@@ -13,6 +19,8 @@ class PatternValidation extends ValidationBase
     /**
      * PatternValidation constructor.
      * @param string $pattern
+     *
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\PatternValidation\ConstructMethodTest
      */
     function __construct($pattern)
     {
