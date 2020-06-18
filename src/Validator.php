@@ -8,8 +8,6 @@ use ReflectionProperty;
 /**
  * Class Validator
  * @package Fabstract\Component\Validator
- *
- * @see \Fabstract\Component\Validator\Test\PHPUnit\Validator\ValidateMethodTest
  */
 class Validator implements ValidatorInterface
 {
@@ -19,6 +17,8 @@ class Validator implements ValidatorInterface
     /**
      * @param ValidatableInterface $value
      * @return ValidationError[]
+     *
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\Validator\ValidateMethodTest
      */
     public function validate($value)
     {
@@ -54,6 +54,8 @@ class Validator implements ValidatorInterface
      * @param string[] $path
      * @param string|int $index_key
      * @return string[]
+     *
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\Validator\AddIndexKeyToPathMethodTest
      */
     private function addIndexKeyToPath($path, $index_key)
     {
