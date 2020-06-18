@@ -83,7 +83,7 @@ class ValidationError
     }
 
     /**
-     * @return string[]
+     * @return string
      */
     public function getPropertyPathAsString()
     {
