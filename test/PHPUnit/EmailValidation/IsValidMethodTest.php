@@ -160,10 +160,19 @@ class IsValidMethodTest extends MethodTestBase
         $this->assertEquals(true, $return);
     }
 
-#endregion
+    #endregion
 
 
-#region [incorrect arguments]
+    #region [incorrect arguments]
+
+    public function testNullEqualsFalseWhenAllowNullIsFalse()
+    {
+        $arguments = [null];
+
+        $return = $this->call(EmailValidation::create()->setAllowNull(false), $arguments);
+
+        $this->assertEquals(false, $return);
+    }
 
     public function testLocalPartIncludeSpaceReturnsFalse()
     {
@@ -434,4 +443,6 @@ class IsValidMethodTest extends MethodTestBase
 
         $this->assertEquals(false, $return);
     }
+
+    #endregion
 }
