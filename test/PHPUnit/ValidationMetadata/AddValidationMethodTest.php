@@ -6,7 +6,7 @@ use Fabstract\Component\UnitTest\MethodTestBase;
 use Fabstract\Component\Validator\Exception\TypeConflictException;
 use Fabstract\Component\Validator\Validation\StringValidation;
 use Fabstract\Component\Validator\ValidationMetadata;
-use Fabstract\Component\Validator\Validator;
+use stdClass;
 
 /**
  * Class GetMaxLengthMethodTest
@@ -18,27 +18,30 @@ class AddValidationMethodTest extends MethodTestBase
 {
     public function testAddEqualsGet()
     {
-        $arguments = ['property', StringValidation::create()];
+        $property_name = 'property';
+        $string_validation = StringValidation::create();
+        $arguments = [$property_name, $string_validation];
 
         /** @var ValidationMetadata $validation_metadata */
         $validation_metadata = $this->call(new ValidationMetadata(), $arguments);
 
-        $return = $validation_metadata->getPropertyValidationLookup()['property'];
+        $return = $validation_metadata->getPropertyValidationLookup()[$property_name];
 
-        $this->assertEquals(1, count($return));
-        $this->assertInstanceOf(StringValidation::class, $return[0]);
+        $this->assertCount(1, $return);
+        $this->assertEquals($string_validation, $return[0]);
     }
 
     public function testAddEqualsGetForString()
     {
-        $arguments = ['property', StringValidation::class];
+        $property_name = 'property';
+        $arguments = [$property_name, StringValidation::class];
 
         /** @var ValidationMetadata $validation_metadata */
         $validation_metadata = $this->call(new ValidationMetadata(), $arguments);
 
-        $return = $validation_metadata->getPropertyValidationLookup()['property'];
+        $return = $validation_metadata->getPropertyValidationLookup()[$property_name];
 
-        $this->assertEquals(1, count($return));
+        $this->assertCount(1, $return);
         $this->assertInstanceOf(StringValidation::class, $return[0]);
     }
 
@@ -64,7 +67,7 @@ class AddValidationMethodTest extends MethodTestBase
     {
         $this->expectException(TypeConflictException::class);
 
-        $arguments = ['property', new Validator()];
+        $arguments = ['property', new stdClass()];
 
         $this->call(new ValidationMetadata(), $arguments);
     }

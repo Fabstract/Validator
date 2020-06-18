@@ -2,6 +2,10 @@
 
 namespace Fabstract\Component\Validator;
 
+/**
+ * Class ValidationMetadata
+ * @package Fabstract\Component\Validator
+ */
 class ValidationMetadata
 {
     /** @var ValidationInterface[][] */
