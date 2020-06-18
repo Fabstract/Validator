@@ -67,7 +67,7 @@ class ArrayValidation extends ValidationBase
 
     /**
      * @return float|int
-     * @see \Fabstract\Component\Validator\Test\PHPUnit\Validator\GetMinLengthMethodTest
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation\GetMinLengthMethodTest
      */
     public function getMinLength()
     {
@@ -88,7 +88,7 @@ class ArrayValidation extends ValidationBase
 
     /**
      * @return float|int
-     * @see \Fabstract\Component\Validator\Test\PHPUnit\Validator\GetMaxLengthMethodTest
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation\GetMaxLengthMethodTest
      */
     public function getMaxLength()
     {
@@ -110,7 +110,7 @@ class ArrayValidation extends ValidationBase
     /**
      * @param string $type
      * @return ArrayValidation
-     * @see \Fabstract\Component\Validator\Test\PHPUnit\Validator\SetTypeMethodTest
+     * @see \Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation\SetTypeMethodTest
      */
     public function setType($type)
     {
