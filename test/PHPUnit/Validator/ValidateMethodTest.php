@@ -29,7 +29,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testValidPublicProperty()
@@ -41,7 +41,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testInvalidPublicProperty()
@@ -53,7 +53,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(1, count($return));
+        $this->assertCount(1, $return);
     }
 
     public function testValidProtectedProperty()
@@ -65,7 +65,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testInvalidProtectedProperty()
@@ -77,7 +77,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testValidPrivateProperty()
@@ -89,7 +89,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testInvalidPrivateProperty()
@@ -101,7 +101,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testClassWithNonExistentPropertyValidation()
@@ -112,7 +112,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testClassWithPropertyWithValidatableValidProperty()
@@ -125,7 +125,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testClassWithPropertyWithValidatableInvalidProperty()
@@ -138,7 +138,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(1, count($return));
+        $this->assertCount(1, $return);
     }
 
     public function testClassWithArrayPropertyWithValidatableValidProperties()
@@ -154,7 +154,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testClassWithArrayPropertyWithValidatableValidAndInvalidProperties()
@@ -170,7 +170,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(1, count($return));
+        $this->assertCount(1, $return);
     }
 
     public function testClassWithArrayPropertyWithValidatableInvalidProperties()
@@ -186,7 +186,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(2, count($return));
+        $this->assertCount(2, $return);
     }
 
     public function testArray()
@@ -203,7 +203,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(2, count($return));
+        $this->assertCount(2, $return);
     }
 
     public function testArrayOfArray()
@@ -231,7 +231,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(2, count($return));
+        $this->assertCount(2, $return);
     }
 
     public function testPublicValidatableValidProperty()
@@ -248,7 +248,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testPublicValidatableInvalidProperty()
@@ -265,7 +265,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(1, count($return));
+        $this->assertCount(1, $return);
     }
 
     public function testPublicValidatableValidPropertyAndInvalidNotValidatableProperty()
@@ -282,7 +282,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(1, count($return));
+        $this->assertCount(1, $return);
     }
 
     public function testProtectedValidatableValidProperty()
@@ -299,7 +299,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testProtectedValidatableInvalidProperty()
@@ -316,7 +316,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testProtectedValidatableValidPropertyAndInvalidNotValidatableProperty()
@@ -333,7 +333,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testPrivateValidatableValidProperty()
@@ -350,7 +350,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testPrivateValidatableInvalidProperty()
@@ -367,7 +367,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testPrivateValidatableValidPropertyAndInvalidNotValidatableProperty()
@@ -384,7 +384,7 @@ class ValidateMethodTest extends MethodTestBase
 
         $return = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(0, count($return));
+        $this->assertCount(0, $return);
     }
 
     public function testErrorMessageAndPath()
@@ -401,7 +401,7 @@ class ValidateMethodTest extends MethodTestBase
         /** @var ValidationError[] $error_list */
         $error_list = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(2, count($error_list));
+        $this->assertCount(2, $error_list);
         $this->assertEquals('String must be at least 1 character(s) long.', $error_list[0]->getMessage());
         $this->assertEquals('property1.[0].public_property', $error_list[0]->getPropertyPathAsString());
         $this->assertEquals('property1.[1].public_property', $error_list[1]->getPropertyPathAsString());
@@ -420,7 +420,7 @@ class ValidateMethodTest extends MethodTestBase
         /** @var ValidationError[] $error_list */
         $error_list = $this->call(new Validator(), $arguments);
 
-        $this->assertEquals(2, count($error_list));
+        $this->assertCount(2, $error_list);
         $this->assertEquals('[0].public_property', $error_list[0]->getPropertyPathAsString());
         $this->assertEquals('[1].public_property', $error_list[1]->getPropertyPathAsString());
     }

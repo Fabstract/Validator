@@ -2,6 +2,15 @@
 
 namespace Fabstract\Component\Validator;
 
+use ReflectionClass;
+use ReflectionProperty;
+
+/**
+ * Class Validator
+ * @package Fabstract\Component\Validator
+ *
+ * @see \Fabstract\Component\Validator\Test\PHPUnit\Validator\ValidateMethodTest
+ */
 class Validator implements ValidatorInterface
 {
     /** @var ValidationMetadata[] */
@@ -112,8 +121,8 @@ class Validator implements ValidatorInterface
 
         $validation_metadata = $this->getValidationMetadata($value, $class_name);
         /** @noinspection PhpUnhandledExceptionInspection */
-        $reflection_class = new \ReflectionClass($class_name);
-        $properties = $reflection_class->getProperties(\ReflectionProperty::IS_PUBLIC);
+        $reflection_class = new ReflectionClass($class_name);
+        $properties = $reflection_class->getProperties(ReflectionProperty::IS_PUBLIC);
         foreach ($properties as $property) {
             $property_value = $property->getValue($value);
             $property_name = $property->getName();
