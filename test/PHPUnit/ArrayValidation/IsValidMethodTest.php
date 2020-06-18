@@ -6,7 +6,6 @@ use Fabstract\Component\UnitTest\MethodTestBase;
 use Fabstract\Component\Validator\Constant\ArrayTypes;
 use Fabstract\Component\Validator\Validation\ArrayValidation;
 
-// todo sequential ve vector type lari empty array icin test et
 /**
  * Class GetMaxLengthMethodTest
  * @package Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation
@@ -28,11 +27,11 @@ class IsValidMethodTest extends MethodTestBase
         $this->assertEquals(true, $return);
     }
 
-    public function testArrayEqualsTrue()
+    public function testEmptyArrayEqualsTrue()
     {
         $arguments = [[]];
 
-        $return = $this->call(new ArrayValidation(), $arguments);
+        $return = $this->call(ArrayValidation::create(), $arguments);
 
         $this->assertEquals(true, $return);
     }
@@ -41,7 +40,7 @@ class IsValidMethodTest extends MethodTestBase
     {
         $arguments = [[[]]];
 
-        $return = $this->call(new ArrayValidation(), $arguments);
+        $return = $this->call(ArrayValidation::create(), $arguments);
 
         $this->assertEquals(true, $return);
     }
@@ -73,6 +72,15 @@ class IsValidMethodTest extends MethodTestBase
         $this->assertEquals(true, $return);
     }
 
+    public function testEmptyArrayValidSetType()
+    {
+        $arguments = [[]];
+
+        $return = $this->call(ArrayValidation::create()->setType(ArrayTypes::SET), $arguments);
+
+        $this->assertEquals(true, $return);
+    }
+
     public function testValidSequentialTypeArray()
     {
         $arguments = [['a', 'b', 'c']];
@@ -82,9 +90,27 @@ class IsValidMethodTest extends MethodTestBase
         $this->assertEquals(true, $return);
     }
 
+    public function testEmptyArrayValidSequentialType()
+    {
+        $arguments = [[]];
+
+        $return = $this->call(ArrayValidation::create()->setType(ArrayTypes::SEQUENTIAL), $arguments);
+
+        $this->assertEquals(true, $return);
+    }
+
     public function testValidVectorTypeArray()
     {
         $arguments = [['a', 'b', 'c']];
+
+        $return = $this->call(ArrayValidation::create()->setType(ArrayTypes::VECTOR), $arguments);
+
+        $this->assertEquals(true, $return);
+    }
+
+    public function testEmptyArrayValidVectorType()
+    {
+        $arguments = [[]];
 
         $return = $this->call(ArrayValidation::create()->setType(ArrayTypes::VECTOR), $arguments);
 
@@ -108,7 +134,7 @@ class IsValidMethodTest extends MethodTestBase
     {
         $arguments = [null];
 
-        $return = $this->call(new ArrayValidation(), $arguments);
+        $return = $this->call(ArrayValidation::create(), $arguments);
 
         $this->assertEquals(false, $return);
     }
@@ -117,7 +143,7 @@ class IsValidMethodTest extends MethodTestBase
     {
         $arguments = [1];
 
-        $return = $this->call(new ArrayValidation(), $arguments);
+        $return = $this->call(ArrayValidation::create(), $arguments);
 
         $this->assertEquals(false, $return);
     }
@@ -126,7 +152,7 @@ class IsValidMethodTest extends MethodTestBase
     {
         $arguments = ['string'];
 
-        $return = $this->call(new ArrayValidation(), $arguments);
+        $return = $this->call(ArrayValidation::create(), $arguments);
 
         $this->assertEquals(false, $return);
     }
