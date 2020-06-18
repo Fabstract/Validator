@@ -4,7 +4,6 @@ namespace Fabstract\Component\Validator\Test\PHPUnit\StringArrayValidation;
 
 use Fabstract\Component\UnitTest\MethodTestBase;
 use Fabstract\Component\Validator\Constant\ArrayTypes;
-use Fabstract\Component\Validator\Exception\TypeConflictException;
 use Fabstract\Component\Validator\Validation\StringArrayValidation;
 
 /**

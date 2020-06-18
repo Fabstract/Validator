@@ -26,7 +26,7 @@ class StringArrayValidation extends ArrayValidation
         foreach ($non_null_value as $value) {
             if (is_string($value) === false) {
                 $given = gettype($value);
-                $this->setErrorMessage("Array's element type must be string, given " . $given);
+                $this->setErrorMessage("Array's element type must be string, given $given");
                 return false;
             }
         }
