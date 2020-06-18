@@ -9,7 +9,7 @@ use Fabstract\Component\Validator\Constant\ArrayTypes;
  * Class ArrayValidation
  * @package Fabstract\Component\Validator\Validation
  *
- * @see \Fabstract\Component\Validator\Test\PHPUnit\Validator\IsValidMethodTest
+ * @see \Fabstract\Component\Validator\Test\PHPUnit\ArrayValidation\IsValidMethodTest
  */
 class ArrayValidation extends ValidationBase
 {
@@ -159,7 +159,12 @@ class ArrayValidation extends ValidationBase
      */
     private function isSequential($array)
     {
-        $is_sequential = array_keys($array) === range(0, count($array) - 1);
+        $array_length = count($array);
+        if ($array_length === 0){
+            return true;
+        }
+
+        $is_sequential = array_keys($array) === range(0, $array_length - 1);
         if ($is_sequential) {
             return true;
         }
@@ -186,7 +191,7 @@ class ArrayValidation extends ValidationBase
                 continue;
             }
             if ($type !== $value_type) {
-                $this->setErrorMessage('Vector array values must be same type');
+                $this->setErrorMessage('Vector array values must be the same type');
                 return false;
             }
         }
