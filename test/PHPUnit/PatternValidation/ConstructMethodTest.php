@@ -34,4 +34,12 @@ class ConstructMethodTest extends MethodTestBase
 
         PatternValidation::create('string');
     }
+
+    /**
+     * @doesNotPerformAssertions
+     */
+    public function testValidRegexPatternParamDoesNotThrowException()
+    {
+        PatternValidation::create('/\w/');
+    }
 }
