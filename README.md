@@ -65,7 +65,7 @@ class RegistrationPostData implements ValidatableInterface
     }
 }
 
-// Created validator instance, one instance is enough
+// Create validator instance, one instance is enough
 $validator = new Validator();
 
 // Let's create instance of our RegistrationPostData and fill it with POST data
@@ -73,7 +73,7 @@ $post_data = new RegistrationPostData();
 $post_data->name = $_POST['name'];
 $post_data->password = $_POST['password'];
 
-// Validate the variable
+// Validate the data
 $validation_error_list = $validator->validate($post_data);
 
 // Here if validation error list is empty, it means all your post data is valid.
